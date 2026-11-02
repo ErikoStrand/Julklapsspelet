@@ -64,15 +64,35 @@
 	<g transform="translate({x} {y}) scale({flip ? -1 : 1} 1)">
 		<path d="M-4 -26 L-8 0 M4 -26 L9 0" stroke={C.ink} stroke-width="3.5" stroke-linecap="round" />
 		{#if arms === 'out'}
-			<path d="M-9 -53 L-25 -44 M9 -53 L25 -44" stroke={coat} stroke-width="4" stroke-linecap="round" />
+			<path
+				d="M-9 -53 L-25 -44 M9 -53 L25 -44"
+				stroke={coat}
+				stroke-width="4"
+				stroke-linecap="round"
+			/>
 		{:else if arms === 'up'}
-			<path d="M-9 -53 L-19 -72 M9 -53 L19 -72" stroke={coat} stroke-width="4" stroke-linecap="round" />
+			<path
+				d="M-9 -53 L-19 -72 M9 -53 L19 -72"
+				stroke={coat}
+				stroke-width="4"
+				stroke-linecap="round"
+			/>
 		{:else if arms === 'gift'}
-			<path d="M-9 -53 L-6 -38 M9 -53 L6 -38" stroke={coat} stroke-width="4" stroke-linecap="round" />
+			<path
+				d="M-9 -53 L-6 -38 M9 -53 L6 -38"
+				stroke={coat}
+				stroke-width="4"
+				stroke-linecap="round"
+			/>
 			<rect x="-11" y="-46" width="22" height="16" rx="2" fill={C.coral} />
 			<path d="M0 -46 V-30 M-11 -40 H11" stroke="#fff" stroke-width="2" />
 		{:else}
-			<path d="M-9 -53 L-14 -31 M9 -53 L14 -31" stroke={coat} stroke-width="4" stroke-linecap="round" />
+			<path
+				d="M-9 -53 L-14 -31 M9 -53 L14 -31"
+				stroke={coat}
+				stroke-width="4"
+				stroke-linecap="round"
+			/>
 		{/if}
 		<path d="M-9 -56 Q0 -60 9 -56 L13 -24 L-13 -24 Z" fill={coat} />
 		<rect x="-8" y="-61" width="16" height="5" rx="2.5" fill={scarf} />
@@ -83,7 +103,12 @@
 	</g>
 {/snippet}
 
-<svg viewBox="0 0 1200 460" class={className} preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+<svg
+	viewBox="0 0 1200 460"
+	class={className}
+	preserveAspectRatio="xMidYMax slice"
+	aria-hidden="true"
+>
 	<!-- far hill + pink trees -->
 	<path d="M0 250 C200 175 420 200 620 165 S1000 140 1200 195 V460 H0 Z" fill={C.farHill} />
 	{#each farTrees as x, i (x)}
@@ -102,7 +127,10 @@
 			<rect x={h.x - 4} y={top - 10} width={h.w + 8} height="12" fill={C.roof} />
 			<rect x={h.x + 6} y={top - 16} width={h.w - 12} height="7" rx="3.5" fill="#fff" />
 		{:else}
-			<path d="M{h.x - 8} {top} L{h.x + h.w / 2} {top - rh} L{h.x + h.w + 8} {top} Z" fill={C.roof} />
+			<path
+				d="M{h.x - 8} {top} L{h.x + h.w / 2} {top - rh} L{h.x + h.w + 8} {top} Z"
+				fill={C.roof}
+			/>
 			<rect x={h.x + h.w * 0.68} y={top - rh * 0.85} width="12" height={rh * 0.5} fill={C.roof} />
 			<circle cx={h.x + h.w / 2 - 12} cy={top - rh + 16} r="7" fill="#fff" />
 			<circle cx={h.x + h.w / 2} cy={top - rh + 10} r="8" fill="#fff" />
@@ -135,7 +163,13 @@
 		<path d="M890 135 L790 410 H890 Z" fill={C.pine} />
 		<path d="M890 135 L990 410 H890 Z" fill={C.pineDark} />
 		{#each [[835, 255, 945, 235], [815, 320, 965, 300], [800, 380, 980, 362]] as [x1, y1, x2, y2] (y1)}
-			<path d="M{x1} {y1} Q890 {y1 + 30} {x2} {y2}" stroke="#fff" stroke-width="1.6" fill="none" opacity="0.8" />
+			<path
+				d="M{x1} {y1} Q890 {y1 + 30} {x2} {y2}"
+				stroke="#fff"
+				stroke-width="1.6"
+				fill="none"
+				opacity="0.8"
+			/>
 		{/each}
 		{#each [[860, 215, 7], [915, 250, 9], [845, 290, 6], [935, 320, 11], [870, 345, 10], [820, 375, 8], [955, 385, 7], [900, 395, 6]] as [cx, cy, r], i (cx)}
 			<circle {cx} {cy} {r} fill={i % 3 === 2 ? C.roof : C.coral} />
@@ -161,9 +195,21 @@
 
 	<!-- sled -->
 	<g transform="translate(230 440) rotate(-8)">
-		<path d="M-34 0 H26 Q34 0 34 -8" stroke={C.ink} stroke-width="3" fill="none" stroke-linecap="round" />
+		<path
+			d="M-34 0 H26 Q34 0 34 -8"
+			stroke={C.ink}
+			stroke-width="3"
+			fill="none"
+			stroke-linecap="round"
+		/>
 		<rect x="-30" y="-8" width="56" height="6" rx="3" fill={C.roof} />
-		<path d="M-6 -10 L18 -10 L22 -2" stroke={C.ink} stroke-width="3.5" stroke-linecap="round" fill="none" />
+		<path
+			d="M-6 -10 L18 -10 L22 -2"
+			stroke={C.ink}
+			stroke-width="3.5"
+			stroke-linecap="round"
+			fill="none"
+		/>
 		<path d="M-14 -12 Q-10 -40 2 -40 L6 -12 Z" fill={C.coral} />
 		<path d="M2 -34 L22 -14" stroke={C.coral} stroke-width="4" stroke-linecap="round" />
 		<circle cx="-3" cy="-48" r="7.5" fill={C.skin} />

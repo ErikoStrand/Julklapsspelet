@@ -1,6 +1,6 @@
 const enc = new TextEncoder();
-// workerd caps PBKDF2 at 100k iterations
-const ITERATIONS = 100_000;
+// stays well under the Workers free-plan CPU limit (10 ms); old hashes store their own count
+const ITERATIONS = 20_000;
 
 const toHex = (buf: ArrayBuffer | Uint8Array) =>
 	[...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, '0')).join('');

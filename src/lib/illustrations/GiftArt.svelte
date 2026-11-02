@@ -6,7 +6,10 @@
 <svg viewBox="0 0 200 170" class={className} aria-hidden="true">
 	<ellipse cx="100" cy="158" rx="80" ry="10" fill="#fdeceb" />
 	<path d="M30 30 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3Z" fill="#7d9c9c" />
-	<path d="M168 50 l2.5 5.5 5.5 2.5 -5.5 2.5 -2.5 5.5 -2.5 -5.5 -5.5 -2.5 5.5 -2.5Z" fill="#ee5f57" />
+	<path
+		d="M168 50 l2.5 5.5 5.5 2.5 -5.5 2.5 -2.5 5.5 -2.5 -5.5 -5.5 -2.5 5.5 -2.5Z"
+		fill="#ee5f57"
+	/>
 	<circle cx="160" cy="18" r="3" fill="#7d9c9c" />
 	<!-- box -->
 	<rect x="45" y="78" width="110" height="80" fill="#ee5f57" />

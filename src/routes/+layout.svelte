@@ -1,4 +1,7 @@
 <script lang="ts">
+	import '@fontsource/dm-serif-display/400.css';
+	import '@fontsource/jost/400.css';
+	import '@fontsource/jost/500.css';
 	import './layout.css';
 	import favicon from '#lib/assets/favicon.svg';
 	import Icon from '#lib/illustrations/Icon.svelte';
@@ -12,7 +15,9 @@
 	<title>Julklappsspelet</title>
 </svelte:head>
 
-<header class="relative z-10 mx-auto grid max-w-6xl grid-cols-[1fr_auto_1fr] items-center px-5 py-5 sm:px-8">
+<header
+	class="relative z-10 mx-auto grid max-w-6xl grid-cols-[1fr_auto_1fr] items-center px-5 py-5 sm:px-8"
+>
 	<nav class="hidden gap-8 text-xs font-medium tracking-[0.16em] uppercase sm:flex">
 		<a href="/#sa-funkar-det" class="hover:text-coral">Så funkar det</a>
 	</nav>

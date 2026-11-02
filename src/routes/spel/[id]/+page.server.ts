@@ -42,13 +42,13 @@ export const actions: Actions = {
 
 			const giver = participants.find((p) => p.id === participantId);
 			if (!giver) return fail(400, { error: 'Välj vem du är i listan.' });
-			if (giver.gives_to)
-				return fail(409, { error: `${giver.name} har redan dragit ett namn.` });
+			if (giver.gives_to) return fail(409, { error: `${giver.name} har redan dragit ett namn.` });
 
 			const receiver = pickReceiver(giver, participants);
 			if (!receiver)
 				return fail(409, {
-					error: 'Det finns ingen kvar att dra. Be den som skapade spelet att nollställa dragningen.'
+					error:
+						'Det finns ingen kvar att dra. Be den som skapade spelet att nollställa dragningen.'
 				});
 
 			const token = randomToken();
