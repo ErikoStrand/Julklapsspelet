@@ -10,7 +10,11 @@
 	},
 	"workers_dev": true,
 	"preview_urls": true,
-	"routes": [{ "pattern": "julklapp.party", "custom_domain": true }],
+	"routes": [
+		{ "pattern": "julklapp.party", "custom_domain": true },
+		// redirected to the bare domain by a zone Redirect Rule
+		{ "pattern": "www.julklapp.party", "custom_domain": true }
+	],
 	"d1_databases": [
 		{
 			"binding": "DB",
