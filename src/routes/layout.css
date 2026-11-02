@@ -1,0 +1,48 @@
+@import 'tailwindcss';
+
+@theme {
+	--font-display: 'DM Serif Display', Georgia, serif;
+	--font-sans: 'Jost', ui-sans-serif, system-ui, sans-serif;
+
+	--color-ink: #12403f;
+	--color-sage: #7d9c9c;
+	--color-pine: #2f7a6e;
+	--color-pine-dark: #245f56;
+	--color-coral: #ee5f57;
+	--color-coral-dark: #d64a43;
+	--color-roof: #7c2b2b;
+	--color-blush: #fdeceb;
+	--color-blush-2: #f9cfcd;
+	--color-skin: #f4c7ad;
+}
+
+@layer components {
+	.card {
+		@apply rounded-3xl bg-white p-6 shadow-[0_24px_60px_-32px_rgba(18,64,63,0.35)] ring-1 ring-blush-2/70 sm:p-10;
+	}
+	.eyebrow {
+		@apply text-xs font-medium tracking-[0.25em] text-sage uppercase;
+	}
+	.label {
+		@apply mb-2 block text-xs font-medium tracking-[0.18em] text-ink/70 uppercase;
+	}
+	.input {
+		@apply w-full rounded-xl border border-ink/15 bg-white px-4 py-2.5 text-ink outline-none placeholder:text-ink/30 focus:border-coral focus:ring-4 focus:ring-coral/15;
+	}
+	.btn {
+		@apply inline-flex items-center justify-center gap-2 rounded-full bg-coral px-7 py-3 text-sm font-medium tracking-[0.16em] text-white uppercase transition hover:bg-coral-dark disabled:cursor-not-allowed disabled:opacity-50;
+	}
+	.btn-ghost {
+		@apply inline-flex items-center justify-center gap-2 rounded-full px-4 py-2 text-xs font-medium tracking-[0.12em] text-ink uppercase ring-1 ring-ink/20 transition hover:bg-blush disabled:cursor-not-allowed disabled:opacity-40;
+	}
+	.error {
+		@apply rounded-xl bg-blush px-4 py-3 text-sm text-coral-dark ring-1 ring-blush-2;
+	}
+	.success {
+		@apply rounded-xl bg-pine/10 px-4 py-3 text-sm text-pine-dark ring-1 ring-pine/20;
+	}
+}
+
+body {
+	@apply min-h-screen bg-white font-sans text-ink antialiased;
+}
