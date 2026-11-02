@@ -19,7 +19,7 @@
 </svelte:head>
 
 <section class="-mt-6 overflow-hidden">
-	<Village class="h-[200px] w-full sm:h-[320px]" />
+	<Village class="h-[260px] w-full sm:h-auto" />
 </section>
 
 <div class="mx-auto max-w-2xl px-5">
