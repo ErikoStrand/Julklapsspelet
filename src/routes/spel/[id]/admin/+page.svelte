@@ -6,12 +6,15 @@
 	import type { PageProps } from './$types';
 
 	let { data, form }: PageProps = $props();
-	let copied = $state(false);
+	// which link was just copied: 'game' or a participant id
+	let copied: string | null = $state(null);
 
-	async function copyLink(url: string) {
+	async function copyLink(url: string, key: string) {
 		await navigator.clipboard.writeText(url);
-		copied = true;
-		setTimeout(() => (copied = false), 2000);
+		copied = key;
+		setTimeout(() => {
+			if (copied === key) copied = null;
+		}, 2000);
 	}
 </script>
 
@@ -34,7 +37,9 @@
 					await update({ refreshAll: true });
 				}}
 		>
-			<div class="mx-auto flex size-14 items-center justify-center rounded-full bg-blush text-coral">
+			<div
+				class="mx-auto flex size-14 items-center justify-center rounded-full bg-blush text-coral"
+			>
 				<Icon name="lock" class="size-7" />
 			</div>
 			<div>
@@ -77,12 +82,19 @@
 					</p>
 					<div class="flex gap-2">
 						<input class="input text-sm" readonly value={data.shareUrl} />
-						<button class="btn shrink-0 px-5" type="button" onclick={() => copyLink(data.shareUrl)}>
+						<button
+							class="btn shrink-0 px-5"
+							type="button"
+							onclick={() => copyLink(data.shareUrl, 'game')}
+						>
 							<Icon name="link" class="size-4" />
-							{copied ? 'Kopierad!' : 'Kopiera'}
+							{copied === 'game' ? 'Kopierad!' : 'Kopiera'}
 						</button>
 					</div>
-					<a href={data.shareUrl} class="inline-flex items-center gap-2 text-sm text-coral hover:underline">
+					<a
+						href={data.shareUrl}
+						class="inline-flex items-center gap-2 text-sm text-coral hover:underline"
+					>
 						Öppna spelet <Icon name="arrow" class="h-3 w-5" />
 					</a>
 				</div>
@@ -101,8 +113,8 @@
 				{#if data.anyDrawn}
 					<p class="flex items-start gap-2 text-sm text-ink/60">
 						<Icon name="lock" class="mt-0.5 size-4 shrink-0" />
-						Dragningen har börjat, så du kan bara byta namn – inte lägga till eller ta bort. Vem som
-						fått vem är hemligt, även för dig.
+						Dragningen har börjat, så du kan bara byta namn – inte lägga till eller ta bort. Vem som fått
+						vem är hemligt, även för dig.
 					</p>
 				{/if}
 
@@ -114,8 +126,21 @@
 								<input class="input py-1.5" name="name" value={p.name} maxlength="40" required />
 								<button class="btn-ghost">Spara</button>
 							</form>
+							{#if !p.drawn}
+								<button
+									type="button"
+									class="btn-ghost"
+									title="Länk där {p.name} redan är vald"
+									onclick={() => copyLink(`${data.shareUrl}?du=${p.id}`, p.id)}
+								>
+									<Icon name="link" class="size-3.5" />
+									{copied === p.id ? 'Kopierad!' : 'Egen länk'}
+								</button>
+							{/if}
 							{#if p.drawn}
-								<span class="inline-flex items-center gap-1 rounded-full bg-pine/10 px-3 py-1 text-xs text-pine-dark">
+								<span
+									class="inline-flex items-center gap-1 rounded-full bg-pine/10 px-3 py-1 text-xs text-pine-dark"
+								>
 									<Icon name="gift" class="size-3.5" /> Har dragit
 								</span>
 								<ConfirmButton

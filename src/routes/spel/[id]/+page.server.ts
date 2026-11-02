@@ -69,7 +69,7 @@ export const actions: Actions = {
 			}
 
 			setGuestCookie(cookies, game.id, token);
-			return { drawn: true };
+			return { receiverId: receiver.id };
 		}
 		return fail(409, { error: 'Många drar samtidigt just nu – försök igen.' });
 	}
