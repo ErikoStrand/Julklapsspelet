@@ -62,13 +62,8 @@ Add a new numbered SQL file in `migrations/` (e.g. `0002_something.sql`), then a
 npx wrangler d1 migrations apply julklapp --local
 ```
 
-Production gets it automatically on the next deploy. The new code goes live slightly before the migration runs, so keep migrations compatible with the code that is already running.
+Production gets it automatically on the next deploy.
 
 ## Deploying
 
-Deploys run on Cloudflare Workers Builds, connected to this GitHub repo:
-
-- **Push to `main`** builds and deploys to production with `npm run deploy`, which runs `wrangler deploy` and then applies any new D1 migrations.
-- **Other branches** get preview URLs. Previews use the same production database and do not run migrations.
-
-No `database_id` is set in `wrangler.jsonc`: on the first deploy Wrangler creates the `julklapp` D1 database automatically, and later deploys reuse it.
+Pushing to `main` deploys to Cloudflare automatically. The D1 database and its tables are created and updated as part of the deploy.
