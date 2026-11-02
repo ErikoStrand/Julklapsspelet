@@ -18,7 +18,8 @@
 	"d1_databases": [
 		{
 			"binding": "DB",
-			"database_name": "julklapp",
+			"database_name": "julklapp-eu",
+			"database_id": "9e7af0ea-dc75-4a66-b7eb-b347e8b538f5",
 			"migrations_dir": "migrations"
 		}
 	]
